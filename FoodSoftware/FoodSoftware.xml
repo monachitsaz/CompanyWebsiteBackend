@@ -1,0 +1,523 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FoodSoftware</name>
+    </assembly>
+    <members>
+        <member name="M:FoodSoftware.Controllers.AboutUsController.Index">
+            <summary>
+            لیست "" درباره ما بدون پیجینگ
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.AboutUsController.Create(FoodSoftware.Models.AboutUs)">
+            <summary>
+            افزودن  درباره ما
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.AboutUsController.GetById(System.Int32)">
+            <summary>
+            دریافت یک رکورد از درباره ما 
+            </summary>
+            <param name="id">آیدی</param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.AboutUsController.Update(FoodSoftware.Models.AboutUs)">
+            <summary>
+            ویرایش درباره ما 
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.AboutUsController.Delete(System.Int32)">
+            <summary>
+            حذف درباره ما 
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.AccountController.Register(FoodSoftware.Models.RegisterAccountModel)">
+            <summary>
+            ثبت نام کاربر
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+            
+        </member>
+        <member name="M:FoodSoftware.Controllers.AccountController.ChangeCredential(FoodSoftware.Models.UserModel)">
+            <summary>
+            تعویض نام کاربری و رمز عبور
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+            
+        </member>
+        <member name="M:FoodSoftware.Controllers.ArticleController.Index">
+            <summary>
+            لیست مقالات بدون پیجینگ
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.ArticleController.Create(FoodSoftware.Models.Articles)">
+            <summary>
+            افزودن  مقاله
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.ArticleController.GetById(System.Int32)">
+            <summary>
+            دریافت یک رکورد از مقالات 
+            </summary>
+            <param name="id">آیدی</param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.ArticleController.Update(FoodSoftware.Models.Articles)">
+            <summary>
+            ویرایش مقاله 
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.ArticleController.Delete(System.Int32)">
+            <summary>
+            حذف مقاله 
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.AuthenticationController.GetTokenWithRefreshToken(FoodSoftware.Models.LoginModel,System.Boolean)">
+            <summary>
+            دریافت رفرش توکن جدید یا آپدیت رفرش توکن
+            </summary>
+            <param name="model"></param>
+            <param name="callFromAuthenticate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.AuthenticationController.GetNewToken(FoodSoftware.Models.RefreshTokenModel)">
+            <summary>
+            رفرش توکن
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+            
+        </member>
+        <member name="M:FoodSoftware.Controllers.ContactsController.Index">
+            <summary>
+            لیست تماس ها بدون پیجینگ
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.ContactsController.Create(FoodSoftware.Models.Contacts)">
+            <summary>
+            افزودن  تماس
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.ContactsController.GetById(System.Int32)">
+            <summary>
+            دریافت یک تماس  
+            </summary>
+            <param name="id">آیدی</param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.ContactsController.Update(FoodSoftware.Models.Contacts)">
+            <summary>
+            ویرایش تماس 
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.ContactsController.Delete(System.Int32)">
+            <summary>
+            حذف تماس 
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.ContactUsController.Index">
+            <summary>
+            لیست تماس ها بدون پیجینگ
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.ContactUsController.Create(FoodSoftware.Models.ContactUs)">
+            <summary>
+            افزودن  تماس
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.ContactUsController.GetById(System.Int32)">
+            <summary>
+            دریافت   یک تماس  
+            </summary>
+            <param name="id">آیدی</param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.ContactUsController.Update(FoodSoftware.Models.ContactUs)">
+            <summary>
+            ویرایش تماس 
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.ContactUsController.Delete(System.Int32)">
+            <summary>
+            حذف مشتری 
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.ContactUsStaticController.Index">
+            <summary>
+            لیست تماس با ما بدون پیجینگ
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.ContactUsStaticController.Create(FoodSoftware.Models.Articles)">
+            <summary>
+            افزودن  متن
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.ContactUsStaticController.GetById(System.Int32)">
+            <summary>
+            دریافت   یک تماس  
+            </summary>
+            <param name="id">آیدی</param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.ContactUsStaticController.Update(FoodSoftware.Models.Articles)">
+            <summary>
+            ویرایش تماس 
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.ContactUsStaticController.Delete(System.Int32)">
+            <summary>
+            حذف متن 
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.CustomerContactController.Index">
+            <summary>
+            لیست مشتریان بدون پیجینگ
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.CustomerContactController.Create(FoodSoftware.Models.CustomerContact)">
+            <summary>
+            افزودن  مشتری
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.CustomerContactController.GetById(System.Int32)">
+            <summary>
+            دریافت یک رکورد از مشتری 
+            </summary>
+            <param name="id">آیدی</param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.CustomerContactController.Update(FoodSoftware.Models.CustomerContact)">
+            <summary>
+            ویرایش مشتری 
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.CustomerContactController.Delete(System.Int32)">
+            <summary>
+            حذف مشتری 
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.FileController.GetById(System.Int32)">
+            <summary>
+            دریافت یک رکورد از سکتورها 
+            </summary>
+            <param name="id">آیدی</param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.FileController.Update(FoodSoftware.Models.Files)">
+            <summary>
+            ویرایش سکتور 
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.FileController.Delete(System.Int32)">
+            <summary>
+            حذف فایل 
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.HomePageController.Index">
+            <summary>
+            تمام عناصر صفحه اول
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.HomePageController.Create(FoodSoftware.Models.HomePage)">
+            <summary>
+            افزودن  آیتم جدید
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.HomePageController.GetById(System.Int32)">
+            <summary>
+            دریافت یک رکورد از عناصر صفحه اول 
+            </summary>
+            <param name="id">آیدی</param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.HomePageController.Update(FoodSoftware.Models.HomePage)">
+            <summary>
+            ویرایش عناصر صفحه اول 
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.HomePageController.Delete(System.Int32)">
+            <summary>
+            حذف آیتم 
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.LinkController.Index">
+            <summary>
+            لیست لینک ها بدون پیجینگ
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.LinkController.Create(FoodSoftware.Models.Link)">
+            <summary>
+            افزودن  لینک
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.LinkController.GetById(System.Int32)">
+            <summary>
+            دریافت یک رکورد از لینک 
+            </summary>
+            <param name="id">آیدی</param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.LinkController.Update(FoodSoftware.Models.Link)">
+            <summary>
+            ویرایش لینک 
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.LinkController.Delete(System.Int32)">
+            <summary>
+            حذف لینک 
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.LogoController.Index">
+            <summary>
+            لیست لوگو بدون پیجینگ
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.LogoController.Create(FoodSoftware.Models.Logo)">
+            <summary>
+            افزودن  لوگو
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.LogoController.GetById(System.Int32)">
+            <summary>
+            دریافت یک رکورد از لوگو 
+            </summary>
+            <param name="id">آیدی</param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.LogoController.Update(FoodSoftware.Models.Logo)">
+            <summary>
+            ویرایش لوگو 
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.LogoController.Delete(System.Int32)">
+            <summary>
+            حذف لوگو 
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.MenuItemController.Index">
+            <summary>
+            لیست   منو آیتم ها
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.MenuItemController.GetMenuItemById(System.Int32)">
+            <summary>
+            لیست منو آیتم های فرزند
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.MenuItemController.GetMenuItemForDrpDn">
+            <summary>
+            لیست منو آیتم ها برای دراپ دان
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.MenuItemController.GetAllForDashboard">
+            <summary>
+            لیست منو آیتم ها برای داشبورد 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.MenuItemController.Create(FoodSoftware.Models.MenuItems)">
+            <summary>
+            افزودن  منو آیتم
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.MenuItemController.GetById(System.Int32)">
+            <summary>
+            دریافت یک رکورد از منو آیتم ها 
+            </summary>
+            <param name="id">آیدی</param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.MenuItemController.Update(FoodSoftware.Models.MenuItems)">
+            <summary>
+            ویرایش منو آیتم 
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.MenuItemController.Delete(System.Int32)">
+            <summary>
+            حذف مقاله 
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.SectorsController.Index">
+            <summary>
+            لیست سکتور بدون پیجینگ
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.SectorsController.Create(FoodSoftware.Models.Sectors)">
+            <summary>
+            افزودن  سکتور
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.SectorsController.GetById(System.Int32)">
+            <summary>
+            دریافت یک رکورد از سکتورها 
+            </summary>
+            <param name="id">آیدی</param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.SectorsController.Update(FoodSoftware.Models.Sectors)">
+            <summary>
+            ویرایش سکتور 
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.SectorsController.Delete(System.Int32)">
+            <summary>
+            حذف سکتور 
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.SubSystemsController.Index">
+            <summary>
+            لیست ماژول ها بدون پیجینگ
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.SubSystemsController.Create(FoodSoftware.Models.SubSystems)">
+            <summary>
+            افزودن  ماژول
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.SubSystemsController.GetById(System.Int32)">
+            <summary>
+            دریافت یک رکورد از ماژول 
+            </summary>
+            <param name="id">آیدی</param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.SubSystemsController.Update(FoodSoftware.Models.SubSystems)">
+            <summary>
+            ویرایش ماژول 
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.SubSystemsController.Delete(System.Int32)">
+            <summary>
+            حذف ماژول 
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.UserController.Index(System.Int32,System.Int32)">
+            <summary>
+            لیست کاربران 
+            </summary>
+            <param name="page"></param>
+            <param name="limit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.UserController.Create(FoodSoftware.Models.UserInfoModel)">
+            <summary>
+            ثبت نام کاربر
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.UserController.GetById(System.String)">
+            <summary>
+              دریافت یک رکورد از کاربران
+            </summary>
+            <param name="id">آیدی</param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.UserController.Update(FoodSoftware.Models.UserInfoModel)">
+            <summary>
+            ویرایش کاربر
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FoodSoftware.Controllers.UserController.Delete(System.Int32)">
+            <summary>
+            حذف کاربر
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
