@@ -41,10 +41,8 @@ namespace Repository
             using (IDbConnection dapper = _sqlUtility.GetNewConnection())
             {
                 var result = await dapper.QueryAsync<T>(qry, commandType: CommandType.StoredProcedure);
-                //var result = await dapper.QueryAsync<T>(qry);
                 return result.ToList();
-                //.Cast<IDictionary<int, string>>()
-                // .Select(it => it.ToDictionary(it => it.Key, it => it.Value));
+              
             }
         }
 
@@ -54,7 +52,6 @@ namespace Repository
             using (IDbConnection dapper = _sqlUtility.GetNewConnection())
             {
                 var skip = (page - 1) * limit;
-                //var query = "sp_Risks_GetAll_WithPagination";
                 var parameters = new DynamicParameters();
                 parameters.Add("Skip", skip);
                 parameters.Add("Take", limit);
@@ -82,16 +79,6 @@ namespace Repository
             }
         }
 
-        //public async Task<T> GetByGuIdAsync(string id, string qry, string idParameters)
-        //{
-        //    using (IDbConnection dapper = _sqlUtility.GetNewConnection())
-        //    {
-        //        var parameters = new DynamicParameters();
-        //        parameters.Add(idParameters, id);
-        //        var result = await dapper.QuerySingleOrDefaultAsync<T>(qry, parameters, commandType: CommandType.StoredProcedure);
-        //        return result;
-        //    }
-        //}
 
         public async Task InsertAsync(string qry, Dictionary<string, object> dictionary)
         {
@@ -118,7 +105,6 @@ namespace Repository
         {
             using (IDbConnection dapper = _sqlUtility.GetNewConnection())
             {
-                //IDictionary<string, string> args = GetArgsFromSomewhere();
                 await dapper.ExecuteAsync(qry, new DynamicParameters(dictionary), commandType: CommandType.StoredProcedure);
             }
         }
@@ -169,19 +155,5 @@ namespace Repository
             }
         }
 
-        //public async Task<(List<ProductModel>, List<CategoryModel>)> GetMultiple(string qry)
-        //{
-        //    using (IDbConnection dapper = _sqlUtility.GetNewConnection())
-        //    {
-
-        //        var query = "SELECT * FROM Products;SELECT * FROM Categories";
-        //        var result = await dapper.QueryMultipleAsync(query);
-        //        var products = await result.ReadFirstAsync<ProductModel>();
-        //        var Categories = await result.ReadFirstAsync<CategoryModel>();
-        //        return (products.ToList(), Categories.ToList());
-        //    }
-        //}
-        //when using in controller
-        //var(products,categories)=await _helper.GetMultiple();
     }
 }

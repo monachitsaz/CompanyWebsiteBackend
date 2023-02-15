@@ -63,15 +63,7 @@ namespace FoodSoftware.Helpers
 
             }
 
-            //private async Task<string> GetByTitle(string title)
-            //{
-            //    var query = "sp_SubSystems_GetByTitle";
-            //    title = "N" + title;
-            //    var dictionary = new Dictionary<string, object>();
-            //    dictionary.Add("Title", title);
-            //    var Name = await repository.GetOneField(title, query, "Title");
-            //    return Name.ToString();
-            //}
+          
 
             public async Task<SubSystems> GetByTitle(object title)
             {
@@ -79,7 +71,6 @@ namespace FoodSoftware.Helpers
                 {
                     var query = "sp_SubSystems_GetByTitle";
                     var model = await repository.GetOneField(title, query, "Title");
-                //var deptObj = JsonSerializer.Deserialize<SubSystems>(model);
                 return model;
                 }
                 catch (SqlException ex)

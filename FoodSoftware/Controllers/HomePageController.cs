@@ -18,7 +18,7 @@ namespace FoodSoftware.Controllers
             this.helper = helper;
         }
         /// <summary>
-        /// تمام عناصر صفحه اول
+        /// Get all elements of first page
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -29,72 +29,49 @@ namespace FoodSoftware.Controllers
         }
 
         /// <summary>
-        /// افزودن  آیتم جدید
+        /// Create new
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> Create(HomePage model)
-        {
-            if (!ModelState.IsValid)
-            {
-                ModelState.AddModelError("", "خطا");
-            }
-            else
-            {
-                await helper.InsertAsync(model);
-            }
+        {           
+            await helper.InsertAsync(model);
             return Ok("عملیات با موفقیت انجام شد");
         }
         /// <summary>
-        /// دریافت یک رکورد از عناصر صفحه اول 
+        ///Get one record of home page by id
         /// </summary>
-        /// <param name="id">آیدی</param>
+        /// <param name="id">id</param>
         /// <returns></returns>
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-
             var model = await helper.GetByIdAsync(id);
-            
             return Ok(model);
         }
 
         /// <summary>
-        /// ویرایش عناصر صفحه اول 
+        /// Update homepage
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
         [HttpPut]
         public async Task<IActionResult> Update(HomePage model)
-        {
-            if (!ModelState.IsValid)
-            {
-                ModelState.AddModelError("", "خطا");
-            }
-            else
-            {
-                await helper.UpdateAsync(model);
-            }
+        {   
+            await helper.UpdateAsync(model);
             return Ok("ویرایش با موفقیت انجام شد");
         }
 
         /// <summary>
-        /// حذف آیتم 
+        /// Delete one record of home page
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpDelete]
         public async Task<IActionResult> Delete(int id)
-        {
-            if (!ModelState.IsValid)
-            {
-                ModelState.AddModelError("", "خطا");
-            }
-            else
-            {
-                await helper.DeleteAsync(id);
-            }
+        {         
+            await helper.DeleteAsync(id);
             return Ok("حذف با موفقیت انجام شد");
         }
     }

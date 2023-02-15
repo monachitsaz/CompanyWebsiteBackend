@@ -33,41 +33,9 @@ namespace FoodSoftware.Helpers
             var result = await repository.GetAllAsync(query);
             foreach (var item in result)
             {
-                //null checker must always done
                 item.ThumbnailBase64 = item.ThumbnailByte != null ? Convert.ToBase64String(item.ThumbnailByte) : string.Empty;
-                //result.Add(item);
             }
-            //var folderName = Path.Combine(_env.WebRootPath, "Files");
-
-            //foreach (var item in result)
-            //{
-            //    //   path= $"/Files/{item.Title}";
-            //   contentType = Path.GetExtension(item.Thumbnail.FileName);
-            //item.
-
-
-            //var fileBytes = item.ThumbnailByte.ToArray();
-            //string base64File = Convert.ToBase64String(fileBytes);
-            //// act on the Base64 data
-            //list.Add(base64File);
-
-
-            //var pathToRead = Path.Combine(Directory.GetCurrentDirectory(), folderName, item.Title);
-
-            //    var fileList = new List<Files>();
-
-            //    //var folderPath = Path.Combine(_env.WebRootPath, "Files");
-            //    if (Directory.Exists(folderName))
-            //    {
-            //        var provider = _env.ContentRootFileProvider;
-            //        foreach (string fileName in Directory.GetFiles(folderName))
-            //        {
-            //            var fileInfo = provider.GetFileInfo(fileName);
-            //            fileList.Add(fileInfo.);
-            //        }
-            //    }
-            //    return fileList;
-            //}
+      
             return result;
         }
 
@@ -78,9 +46,7 @@ namespace FoodSoftware.Helpers
             dictionary.Add("id", id);
             var model = await repository.GetOneField(id, query1, "Id");
             return model.Title;
-            //return fileName.EndsWith(".jpg", StringComparison.OrdinalIgnoreCase)
-            //    || fileName.EndsWith(".jpeg", StringComparison.OrdinalIgnoreCase)
-            //    || fileName.EndsWith(".png", StringComparison.OrdinalIgnoreCase);
+
         }
 
         public async Task<List<Files>> GetAllForDrpDn()
@@ -110,7 +76,6 @@ namespace FoodSoftware.Helpers
         {
             try
             {
-                //model.ThumbnailBase64 = Convert.ToBase64String();
                 var query = "[sp_Files_Insert]";
                 var dictionary = new Dictionary<string, object>();
                 dictionary.Add("Url", model.Url);
@@ -178,9 +143,7 @@ namespace FoodSoftware.Helpers
                 var name = await GetFileName(id);
                 if (name!=null || name !="")
                 {
-                    //string fName = name.Substring(sourceDir.Length + 1);
                     string folderPath = Path.Combine(_env.WebRootPath, "Files");
-                    //System.IO.DirectoryInfo di = new DirectoryInfo(folderPath + @"\" + name);
                     System.IO.DirectoryInfo di = new DirectoryInfo(folderPath);
                     foreach (FileInfo file in di.GetFiles())
                     {
@@ -214,9 +177,7 @@ namespace FoodSoftware.Helpers
                 var name = await GetFileName(id);
                 if (name != null || name != "")
                 {
-                    //string fName = name.Substring(sourceDir.Length + 1);
                     string folderPath = Path.Combine(_env.WebRootPath, "Files");
-                    //System.IO.DirectoryInfo di = new DirectoryInfo(folderPath + @"\" + name);
                     System.IO.DirectoryInfo di = new DirectoryInfo(folderPath);
                     foreach (FileInfo file in di.GetFiles())
                     {

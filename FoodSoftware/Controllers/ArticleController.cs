@@ -21,7 +21,7 @@ namespace FoodSoftware.Controllers
 
 
         /// <summary>
-        /// لیست مقالات بدون پیجینگ
+        /// List of articles without pagination
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -33,49 +33,45 @@ namespace FoodSoftware.Controllers
 
 
         /// <summary>
-        /// افزودن  مقاله
+        /// Create a new article
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost]
         [Authorize]
         public async Task<IActionResult> Create(Articles model)
-        {
-            if (!ModelState.IsValid)
-            {
-                ModelState.AddModelError("", "خطا");
-            }
-            else
-            {
-                await helper.InsertAsync(model);
-            }
+        {    
+            await helper.InsertAsync(model);           
             return Ok("عملیات با موفقیت انجام شد");
         }
         /// <summary>
-        /// دریافت یک رکورد از مقالات 
+        /// Get an article by id
         /// </summary>
-        /// <param name="id">آیدی</param>
+        /// <param name="id">id</param>
         /// <returns></returns>
         [HttpGet("{id}")]
         [Authorize]
         public async Task<IActionResult> GetById(int id)
         {
-
             var model = await helper.GetByIdAsync(id);
             return Ok(model);
         }
 
+        /// <summary>
+        /// Get an article by title
+        /// </summary>
+        /// <param name="title"></param>
+        /// <returns></returns>
 
         [HttpGet("Blog/{title}")]
         public async Task<IActionResult> GetByTitle(string title)
         {
-
             var model = await helper.GetByTitle(title);
             return Ok(model);
         }
 
         /// <summary>
-        /// ویرایش مقاله 
+        /// Update an article 
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
@@ -83,19 +79,12 @@ namespace FoodSoftware.Controllers
         [Authorize]
         public async Task<IActionResult> Update(Articles model)
         {
-            if (!ModelState.IsValid)
-            {
-                ModelState.AddModelError("", "خطا");
-            }
-            else
-            {
-                await helper.UpdateAsync(model);
-            }
+            await helper.UpdateAsync(model);
             return Ok("ویرایش با موفقیت انجام شد");
         }
 
         /// <summary>
-        /// حذف مقاله 
+        /// Delete an article 
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -103,14 +92,8 @@ namespace FoodSoftware.Controllers
         [Authorize]
         public async Task<IActionResult> Delete(int id)
         {
-            if (!ModelState.IsValid)
-            {
-                ModelState.AddModelError("", "خطا");
-            }
-            else
-            {
-                await helper.DeleteAsync(id);
-            }
+       
+            await helper.DeleteAsync(id);       
             return Ok("حذف با موفقیت انجام شد");
         }
     }

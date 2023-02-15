@@ -20,7 +20,7 @@ namespace FoodSoftware.Controllers
         }
 
         /// <summary>
-        /// لیست ماژول ها بدون پیجینگ
+        /// Get modules list
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -31,28 +31,22 @@ namespace FoodSoftware.Controllers
         }
 
         /// <summary>
-        /// افزودن  ماژول
+        /// Create a module
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost]
         [Authorize]
         public async Task<IActionResult> Create(SubSystems model)
-        {
-            if (!ModelState.IsValid)
-            {
-                ModelState.AddModelError("", "خطا");
-            }
-            else
-            {
-                await helper.InsertAsync(model);
-            }
+        {      
+            await helper.InsertAsync(model);
             return Ok("عملیات با موفقیت انجام شد");
         }
+
         /// <summary>
-        /// دریافت یک رکورد از ماژول 
+        /// Get a module by id
         /// </summary>
-        /// <param name="id">آیدی</param>
+        /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet("{id}")]
         [Authorize]
@@ -63,6 +57,11 @@ namespace FoodSoftware.Controllers
             return Ok(model);
         }
 
+        /// <summary>
+        /// Get a module by title
+        /// </summary>
+        /// <param name="title"></param>
+        /// <returns></returns>
         [HttpGet("Introduction/{title}")]
         public async Task<IActionResult> GetByTitle(string title)
         {
@@ -72,42 +71,28 @@ namespace FoodSoftware.Controllers
         }
 
         /// <summary>
-        /// ویرایش ماژول 
+        /// Update module 
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
         [HttpPut]
         [Authorize]
         public async Task<IActionResult> Update(SubSystems model)
-        {
-            if (!ModelState.IsValid)
-            {
-                ModelState.AddModelError("", "خطا");
-            }
-            else
-            {
-                await helper.UpdateAsync(model);
-            }
+        {       
+            await helper.UpdateAsync(model);
             return Ok("ویرایش با موفقیت انجام شد");
         }
 
         /// <summary>
-        /// حذف ماژول 
+        /// Delete module 
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpDelete("{id}")]
         [Authorize]
         public async Task<IActionResult> Delete(int id)
-        {
-            if (!ModelState.IsValid)
-            {
-                ModelState.AddModelError("", "خطا");
-            }
-            else
-            {
-                await helper.DeleteAsync(id);
-            }
+        {         
+            await helper.DeleteAsync(id);
             return Ok("حذف با موفقیت انجام شد");
         }
     }

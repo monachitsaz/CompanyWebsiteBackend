@@ -133,7 +133,6 @@ namespace FoodSoftware.Helpers
             {
                 var query = "sp_Sectors_GetByTitle";
                 var model = await repository.GetOneField(title, query, "Title");
-                //var deptObj = JsonSerializer.Deserialize<SubSystems>(model);
                 return model;
             }
             catch (SqlException ex)

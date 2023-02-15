@@ -20,7 +20,7 @@ namespace FoodSoftware.Controllers
         }
        
         /// <summary>
-        /// لیست سکتور بدون پیجینگ
+        /// Get sectors list
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -32,26 +32,20 @@ namespace FoodSoftware.Controllers
 
 
         /// <summary>
-        /// افزودن  سکتور
+        /// Create sector
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost]
         [Authorize]
         public async Task<IActionResult> Create(Sectors model)
-        {
-            if (!ModelState.IsValid)
-            {
-                ModelState.AddModelError("", "خطا");
-            }
-            else
-            {
-                await helper.InsertAsync(model);
-            }
+        {     
+            await helper.InsertAsync(model);
             return Ok("عملیات با موفقیت انجام شد");
         }
+
         /// <summary>
-        /// دریافت یک رکورد از سکتورها 
+        /// Get a sector record
         /// </summary>
         /// <param name="id">آیدی</param>
         /// <returns></returns>
@@ -64,51 +58,41 @@ namespace FoodSoftware.Controllers
             return Ok(model);
         }
 
+        /// <summary>
+        /// Get sector by title
+        /// </summary>
+        /// <param name="title"></param>
+        /// <returns></returns>
         [HttpGet("SectorArticle/{title}")]
         public async Task<IActionResult> GetByTitle(string title)
         {
-
             var model = await helper.GetByTitle(title);
             return Ok(model);
         }
 
         /// <summary>
-        /// ویرایش سکتور 
+        /// Update sector 
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
         [HttpPut]
         [Authorize]
         public async Task<IActionResult> Update(Sectors model)
-        {
-            if (!ModelState.IsValid)
-            {
-                ModelState.AddModelError("", "خطا");
-            }
-            else
-            {
-                await helper.UpdateAsync(model);
-            }
+        {       
+            await helper.UpdateAsync(model);
             return Ok("ویرایش با موفقیت انجام شد");
         }
 
         /// <summary>
-        /// حذف سکتور 
+        /// Delete a sector 
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpDelete("{id}")]
         [Authorize]
         public async Task<IActionResult> Delete(int id)
-        {
-            if (!ModelState.IsValid)
-            {
-                ModelState.AddModelError("", "خطا");
-            }
-            else
-            {
-                await helper.DeleteAsync(id);
-            }
+        {         
+            await helper.DeleteAsync(id);
             return Ok("حذف با موفقیت انجام شد");
         }
     }

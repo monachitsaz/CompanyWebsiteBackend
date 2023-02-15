@@ -31,7 +31,7 @@ namespace FoodSoftware.Controllers
 
 
         /// <summary>
-        /// دریافت رفرش توکن جدید یا آپدیت رفرش توکن
+        /// Get Refresh token or update it
         /// </summary>
         /// <param name="model"></param>
         /// <param name="callFromAuthenticate"></param>
@@ -56,12 +56,6 @@ namespace FoodSoftware.Controllers
                 var tokenHandler = new JwtSecurityTokenHandler();
                 var key = Encoding.UTF8.GetBytes(secretKey);
 
-
-                //X509Certificate2 cert = new X509Certificate2("MySelfSignedCertificate.pfx", "password");
-                //SecurityKey key2 = new X509SecurityKey(cert); //well, seems to be that simple
-
-
-
                 var tokenDescriptor = new SecurityTokenDescriptor
                 {
                     Subject = new ClaimsIdentity(new Claim[]
@@ -83,7 +77,6 @@ namespace FoodSoftware.Controllers
                 if (callFromAuthenticate)
                 {
                     //insert new refreshToken
-
                     var sp2 = "[sp_UserRefreshTokens_Insert]";
                     var para = new DynamicParameters();
                     para.Add("UserId", queryResult.Id);
@@ -101,9 +94,6 @@ namespace FoodSoftware.Controllers
                     para.Add("RefreshToken", refreshToken);
                     var sp2result = await dapper.ExecuteAsync(sp3, para, commandType: CommandType.StoredProcedure);
                 }
-
-
-
 
                 var result = new AuthenticateModel
                 {
@@ -146,8 +136,7 @@ namespace FoodSoftware.Controllers
                     }
                     else
                     {
-                        //var result = await GetTokenWithRefreshToken(model);
-                        //return Ok(result);
+                      
 
                         #region generate token
                         var secretKey = Configuration.GetValue<string>("TokenKey");
@@ -158,18 +147,12 @@ namespace FoodSoftware.Controllers
                         var tokenHandler = new JwtSecurityTokenHandler();
                         var key = Encoding.UTF8.GetBytes(secretKey);
 
-
-                        //X509Certificate2 cert = new X509Certificate2("MySelfSignedCertificate.pfx", "password");
-                        //SecurityKey key2 = new X509SecurityKey(cert); //well, seems to be that simple
-
                         var tokenDescriptor = new SecurityTokenDescriptor
                         {
                             Subject = new ClaimsIdentity(new Claim[]
                             {
                                   new Claim(ClaimTypes.Name, model.UserName),
-                                  //new Claim("FullName", model.UserName),
                                   new Claim("Role", queryResult.RoleID.ToString()),
-
 
                             }),
                             Expires = DateTime.UtcNow.AddMinutes(tokenTimeOut),
@@ -207,6 +190,7 @@ namespace FoodSoftware.Controllers
                             }
 
                         }
+
                         //insert refreshToken + userId in db
                         else if (q3 == null)
                         {
@@ -223,7 +207,6 @@ namespace FoodSoftware.Controllers
                         {
                             RefreshToken = refreshToken.ToString(),
                             Token = token,
-                            //FullName = model.UserName,
                             RoleId = queryResult.RoleID,
                             UserId = queryResult.Id
                         };

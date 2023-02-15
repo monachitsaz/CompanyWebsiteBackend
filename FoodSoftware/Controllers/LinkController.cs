@@ -18,22 +18,10 @@ namespace FoodSoftware.Controllers
         {
             this.helper = helper;
         }
-        ///// <summary>
-        ///// لیست لینک
-        ///// </summary>
-        ///// <param name="page"></param>
-        ///// <param name="limit"></param>
-        ///// <returns></returns>
-        //[HttpGet]
-        //public async Task<IActionResult> Index(int page = 1, int limit = 3)
-        //{
-        //    var result = await helper.GetAllWithPaginationAsync(page, limit);
-        //    return Ok(result);
-        //}
 
 
         /// <summary>
-        /// لیست لینک ها بدون پیجینگ
+        ///Get list of links
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -45,7 +33,7 @@ namespace FoodSoftware.Controllers
 
 
         /// <summary>
-        /// افزودن  لینک
+        /// Create link
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
@@ -53,32 +41,25 @@ namespace FoodSoftware.Controllers
         [Authorize]
         public async Task<IActionResult> Create(Link model)
         {
-            if (!ModelState.IsValid)
-            {
-                ModelState.AddModelError("", "خطا");
-            }
-            else
-            {
-                await helper.InsertAsync(model);
-            }
+            await helper.InsertAsync(model);
             return Ok("عملیات با موفقیت انجام شد");
         }
+
         /// <summary>
-        /// دریافت یک رکورد از لینک 
+        /// Get one record
         /// </summary>
-        /// <param name="id">آیدی</param>
+        /// <param name="id">id</param>
         /// <returns></returns>
         [HttpGet("{id}")]
         [Authorize]
         public async Task<IActionResult> GetById(int id)
         {
-
             var model = await helper.GetByIdAsync(id);
             return Ok(model);
         }
 
         /// <summary>
-        /// ویرایش لینک 
+        ///Update a link 
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
@@ -86,19 +67,12 @@ namespace FoodSoftware.Controllers
         [Authorize]
         public async Task<IActionResult> Update(Link model)
         {
-            if (!ModelState.IsValid)
-            {
-                ModelState.AddModelError("", "خطا");
-            }
-            else
-            {
-                await helper.UpdateAsync(model);
-            }
+            await helper.UpdateAsync(model);
             return Ok("ویرایش با موفقیت انجام شد");
         }
 
         /// <summary>
-        /// حذف لینک 
+        /// Delete a link
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -106,14 +80,8 @@ namespace FoodSoftware.Controllers
         [Authorize]
         public async Task<IActionResult> Delete(int id)
         {
-            if (!ModelState.IsValid)
-            {
-                ModelState.AddModelError("", "خطا");
-            }
-            else
-            {
-                await helper.DeleteAsync(id);
-            }
+  
+            await helper.DeleteAsync(id);
             return Ok("حذف با موفقیت انجام شد");
         }
     }

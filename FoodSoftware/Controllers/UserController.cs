@@ -21,7 +21,7 @@ namespace FoodSoftware.Controllers
         }
 
         /// <summary>
-        /// لیست کاربران 
+        /// Get Users list 
         /// </summary>
         /// <param name="page"></param>
         /// <param name="limit"></param>
@@ -34,39 +34,24 @@ namespace FoodSoftware.Controllers
             return Ok(result);
         }
 
-        //[HttpGet]
-        //public async Task<IActionResult> Index()
-        //{
-        //    var result = await helper.GetAllAsync();
-        //    return Ok(result);
-
-        //}
-
 
         /// <summary>
-        /// ثبت نام کاربر
+        /// Register a new user
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost]
         [Authorize]
         public async Task<IActionResult> Create(UserInfoModel model)
-        {
-            if (!ModelState.IsValid)
-            {
-                ModelState.AddModelError("", "خطا");
-            }
-            else
-            {
-                await helper.InsertAsync(model);
-            }
+        {        
+            await helper.InsertAsync(model);
             return Ok("عملیات با موفقیت انجام شد");
         }
 
         /// <summary>
-        ///   دریافت یک رکورد از کاربران
+        ///  Get a user by id
         /// </summary>
-        /// <param name="id">آیدی</param>
+        /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(string id)
@@ -77,42 +62,28 @@ namespace FoodSoftware.Controllers
         }
 
         /// <summary>
-        /// ویرایش کاربر
+        /// Update a user
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
         [HttpPut("{id}")]
         [Authorize]
         public async Task<IActionResult> Update(UserInfoModel model)
-        {
-            if (!ModelState.IsValid)
-            {
-                ModelState.AddModelError("", "خطا");
-            }
-            else
-            {
-                await helper.UpdateAsync(model);
-            }
+        {      
+            await helper.UpdateAsync(model);
             return Ok("ویرایش با موفقیت انجام شد");
         }
 
         /// <summary>
-        /// حذف کاربر
+        /// Delete User
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpDelete]
         [Authorize]
         public async Task<IActionResult> Delete(int id)
-        {
-            if (!ModelState.IsValid)
-            {
-                ModelState.AddModelError("", "خطا");
-            }
-            else
-            {
-                await helper.DeleteAsync(id);
-            }
+        {       
+            await helper.DeleteAsync(id);
             return Ok("حذف با موفقیت انجام شد");
         }
 

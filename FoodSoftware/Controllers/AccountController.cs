@@ -26,11 +26,10 @@ namespace FoodSoftware.Controllers
             this.helper = helper;
             this.sqlUtil = sqlUtil;
             Configuration = configuration;
-
         }
 
         /// <summary>
-        /// ثبت نام کاربر
+        /// Register user
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
@@ -42,15 +41,15 @@ namespace FoodSoftware.Controllers
             //check pasword difficulty
             //check password and confirmPassword
             var saltpassword = Guid.NewGuid().ToString();
+
             //var hashPassord = EncryptionUtility.Sha256(model.Password);
             var hashPassord = EncryptionUtility.HashPasswordWithSalt(model.Password, saltpassword.ToString());
-            //var userId = Guid.NewGuid().ToString();
 
+            //var userId = Guid.NewGuid().ToString();
             using (IDbConnection dapper = sqlUtil.GetNewConnection())
             {
                 var query = "sp_Users_Insert";
                 var parameters = new DynamicParameters();
-                //parameters.Add("Id", userId);
                 parameters.Add("UserName", model.Username);
                 parameters.Add("Password", hashPassord);
                 parameters.Add("PasswordSalt", saltpassword);
@@ -68,7 +67,7 @@ namespace FoodSoftware.Controllers
 
 
         /// <summary>
-        /// تعویض نام کاربری و رمز عبور
+        /// Change username and password
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
@@ -83,8 +82,6 @@ namespace FoodSoftware.Controllers
                     var saltpassword = Guid.NewGuid().ToString();
                     var hashPassord = EncryptionUtility.HashPasswordWithSalt(model.Password, saltpassword.ToString());
                     var result = await helper.GetByIdAsync(model.Id);
-
-
 
                     using (IDbConnection dapper = sqlUtil.GetNewConnection())
                     {

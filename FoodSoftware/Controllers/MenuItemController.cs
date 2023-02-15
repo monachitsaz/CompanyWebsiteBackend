@@ -21,7 +21,7 @@ namespace FoodSoftware.Controllers
 
 
         /// <summary>
-        /// لیست   منو آیتم ها
+        /// Get menuItem list
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -32,7 +32,7 @@ namespace FoodSoftware.Controllers
         }
 
         /// <summary>
-        /// لیست منو آیتم های فرزند
+        /// Get submenuItem list
         /// </summary>
         /// <returns></returns>
         [HttpGet("GetMenuItemById/{id}")]
@@ -43,7 +43,7 @@ namespace FoodSoftware.Controllers
         }
 
         /// <summary>
-        /// لیست منو آیتم ها برای دراپ دان
+        /// Get MenuItems For dropDown
         /// </summary>
         /// <returns></returns>
         [HttpGet("GetMenuItemForDrpDn")]
@@ -54,7 +54,7 @@ namespace FoodSoftware.Controllers
         }
 
         /// <summary>
-        /// لیست منو آیتم ها برای داشبورد 
+        /// Get menuItem list for dashboard
         /// </summary>
         /// <returns></returns>
         [HttpGet("GetAllForDashboard")]
@@ -66,27 +66,20 @@ namespace FoodSoftware.Controllers
         }
 
         /// <summary>
-        /// افزودن  منو آیتم
+        /// Create a menuItem
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> Create(MenuItems model)
-        {
-            if (!ModelState.IsValid)
-            {
-                ModelState.AddModelError("", "خطا");
-            }
-            else
-            {
-                await helper.InsertAsync(model);
-            }
+        {        
+            await helper.InsertAsync(model);
             return Ok("عملیات با موفقیت انجام شد");
         }
         /// <summary>
-        /// دریافت یک رکورد از منو آیتم ها 
+        /// Get a record of menuItem
         /// </summary>
-        /// <param name="id">آیدی</param>
+        /// <param name="id">id</param>
         /// <returns></returns>
         [HttpGet("{id}")]
         [Authorize]
@@ -98,42 +91,28 @@ namespace FoodSoftware.Controllers
         }
 
         /// <summary>
-        /// ویرایش منو آیتم 
+        /// Update a menu item 
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
         [HttpPut]
         [Authorize]
         public async Task<IActionResult> Update(MenuItems model)
-        {
-            if (!ModelState.IsValid)
-            {
-                ModelState.AddModelError("", "خطا");
-            }
-            else
-            {
-                await helper.UpdateAsync(model);
-            }
+        {    
+            await helper.UpdateAsync(model);         
             return Ok("ویرایش با موفقیت انجام شد");
         }
 
         /// <summary>
-        /// حذف مقاله 
+        /// Delete menuItem 
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpDelete("{id}")]
         [Authorize]
         public async Task<IActionResult> Delete(int id)
-        {
-            if (!ModelState.IsValid)
-            {
-                ModelState.AddModelError("", "خطا");
-            }
-            else
-            {
-                await helper.DeleteAsync(id);
-            }
+        {         
+            await helper.DeleteAsync(id);
             return Ok("حذف با موفقیت انجام شد");
         }
     }

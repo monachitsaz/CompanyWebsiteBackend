@@ -92,7 +92,6 @@ namespace Helpers
 
         }
 
-        //public async Task<string> UpdateAsync(RoleModel model)
 
         public async Task UpdateAsync(UserInfoModel model)
         {
@@ -114,7 +113,6 @@ namespace Helpers
                 dictionary.Add("PDate", model.PDate);
                 dictionary.Add("Id", model.Id);
                 await repository.UpdateAsync(query, dictionary);
-                //return "true";
             }
             catch (SqlException ex)
             {

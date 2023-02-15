@@ -18,22 +18,10 @@ namespace FoodSoftware.Controllers
         {
             this.helper = helper;
         }
-        ///// <summary>
-        ///// لیست مقالات
-        ///// </summary>
-        ///// <param name="page"></param>
-        ///// <param name="limit"></param>
-        ///// <returns></returns>
-        //[HttpGet]
-        //public async Task<IActionResult> Index(int page = 1, int limit = 3)
-        //{
-        //    var result = await helper.GetAllWithPaginationAsync(page, limit);
-        //    return Ok(result);
-        //}
 
 
         /// <summary>
-        /// لیست تماس با ما بدون پیجینگ
+        /// List of ContactUs records
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -45,21 +33,14 @@ namespace FoodSoftware.Controllers
 
 
         /// <summary>
-        /// افزودن  متن
+        /// Create a new contactUs record
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> Create(Articles model)
-        {
-            if (!ModelState.IsValid)
-            {
-                ModelState.AddModelError("", "خطا");
-            }
-            else
-            {
-                await helper.InsertAsync(model);
-            }
+        {         
+            await helper.InsertAsync(model);           
             return Ok("ثبت با موفقیت انجام شد");
         }
         /// <summary>
@@ -76,7 +57,7 @@ namespace FoodSoftware.Controllers
         }
 
         /// <summary>
-        /// ویرایش تماس 
+        /// Update a ContactUs record
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
@@ -84,34 +65,20 @@ namespace FoodSoftware.Controllers
         [Authorize]
         public async Task<IActionResult> Update(Articles model)
         {
-            if (!ModelState.IsValid)
-            {
-                ModelState.AddModelError("", "خطا");
-            }
-            else
-            {
-                await helper.UpdateAsync(model);
-            }
+            await helper.UpdateAsync(model);
             return Ok("ویرایش با موفقیت انجام شد");
         }
 
         /// <summary>
-        /// حذف متن 
+        /// Delete a ContactUs record
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpDelete("{id}")]
         [Authorize]
         public async Task<IActionResult> Delete(int id)
-        {
-            if (!ModelState.IsValid)
-            {
-                ModelState.AddModelError("", "خطا");
-            }
-            else
-            {
-                await helper.DeleteAsync(id);
-            }
+        {  
+            await helper.DeleteAsync(id);
             return Ok("حذف با موفقیت انجام شد");
         }
     }
